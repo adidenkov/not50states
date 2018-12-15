@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:800|Rubik+Mono+One");
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.text {
+    max-width: 400px;
+    
+    border: solid #444444 2px;
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 15px 0;
+}
+.button {
+    width: 100%;
+    max-width: 400px;
+    
+    border-style: solid;
+    border-width: 2px;
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 15px 0;
+}
+.button.red {
+    background-color: #b74b4b;
+    border-color: #772f2f;
+    color: white;
+}
+.button.green {
+    background-color: #4CAF50;
+    border-color: #358238;
+    color: white;
+}
+.button.grey {
+    background-color: buttonface;
+    border-color: #adadad;
+    color: black;
+}
+.button.black {
+    background-color: black;
+    border-color: #303030;
+    color: white;
+}
+.button.orange {
+    background-color: #F48535;
+    border-color: #934607;
+    color: black;
+}
+.button:disabled {
+    background-color: buttonface;
+    border-color: #adadad;
+    color: #adadad;
+}
+
+.scoreboard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    
+    background-image: linear-gradient(#F48535, #DB762E);
+    border-style: solid;
+    border-color: #934607;
+    border-width: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2), 3px 3px 7px 1px rgba(0, 0, 0, 0.2);
+}
+.scoreboard p {
+    font-size: 20px;
+}
+.scoreboard * {
+    font-family: 'Montserrat';
+    margin: 6px 0;
+}
+.scoreboard .nums {
+    width: 25px;
+    float: left;
+    margin-left: 5px;
+}
+.scoreboard .names {
+    width: 105px;
+    float: left;
+    white-space: nowrap;
+}
+.scoreboard .scores {
+    width: 60px;
+    float: left;
+    text-align: right;
+}
+.scoreboard .gold {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #8D6900;
+    -webkit-text-fill-color: #FFBF00;
+}
+.scoreboard .silver {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #737373;
+    -webkit-text-fill-color: #C0C0C0;
+}
+.scoreboard .bronze {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #674019;
+    -webkit-text-fill-color: #CD7F32;
+}
+
+#gameDisplay {
+    display: inline-block;
+    
+    margin: 0;
+    padding: 0;
+    width: calc(100% - 240px);
+    height: auto;
+}
+#sidebar {
+    position: absolute;
+    top: 230px;
+    right: 0;
+    bottom: 10px;
+    
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    
+    background-image: linear-gradient(#2DDFFF, #2B99AD);
+    border-style: solid;
+    border-color: #0889A0;
+    border-width: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2), 3px 3px 7px 1px rgba(0, 0, 0, 0.2);
+}
+#sidebar * {
+    font-family: 'Montserrat';
+}
+#sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4 {
+    margin: calc((100vh - 300px) / 50) 0;
+}
+#sidebar .button {
+    margin: calc((100vh - 600px) / 15) 0;
+}
+.thick {
+    font-family: 'Rubik Mono One' !important;
+}
+.darkred {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    -webkit-text-fill-color: #AA0000;
+}
+.bottom {
+    top: calc(155px + 40px);
+    bottom: 0;
+    
+    box-sizing: border-box;
+    width: 95%;
+    position: absolute !important;
+}
+
+/* Game start and game over popups */
+.popup-background {
+    z-index: 1;
+    display: none;
+    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    background-color: rgba(50, 50, 50, 0.2);
+}
+.popup {
+    z-index: 2;
+    
+    /* Center the message */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    border: solid grey 2px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    padding: 10px 25px;
+}
+.popup * {
+    font-family: 'Montserrat';
+}
+
+.centered {
+    text-align: center;
+}
+.centered2, #sidebar * {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.centered2XY {
+    position: relative;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+h1.centered2, h2.centered2, h3.centered2, h4.centered2,
+#sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4 {
+    width: min-content;
+}
+
+#performanceBox {
+    position: absolute;
+    top: 230px;
+    left: 0;
+    
+    margin: 10px;
+    padding: 5px;
+    border: solid black 1px;
+    background-color: white;
+}
+
+/* Default state scheme */
+#gameDisplay svg path {
+    fill: #D3D3D3;
+    stroke: black;
+    stroke-width: 2px;
+    transition: fill 2s, stroke 2s;
+}
+
+/* When showing good/bad borders upon placement */
+#gameDisplay svg path.dinged {
+    transition: none;
+}
+#gameDisplay p.floaty {
+    position: absolute;
+    -webkit-animation: fadeout 2.1s 1;
+    
+    font-family: 'Rubik Mono One';
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+@-webkit-keyframes fadeout {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }	
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* Pretty hacky way of doing it, but I couldn't find a better one */
+/* credit where credit's due: http://www.perbang.dk/rgbgradient/ */
+#gameDisplay .color0 {
+    stroke: #FF0000;
+    -webkit-text-fill-color: #FF0000;
+    fill: #FF7F7F;
+}
+#gameDisplay .color1 {
+    stroke: #FF3800;
+    -webkit-text-fill-color: #FF3800;
+    fill: #FF9B7F;
+}
+#gameDisplay .color2 {
+    stroke: #FF7100;
+    -webkit-text-fill-color: #FF7100;
+    fill: #FFB87F;
+}
+#gameDisplay .color3 {
+    stroke: #FFAA00;
+    -webkit-text-fill-color: #FFAA00;
+    fill: #FFD47F;
+}
+#gameDisplay .color4 {
+    stroke: #FFE200;
+    -webkit-text-fill-color: #FFE200;
+    fill: #FFF07F;
+}
+#gameDisplay .color5 {
+    stroke: #E2FF00;
+    -webkit-text-fill-color: #E2FF00;
+    fill: #F0FF7F;
+}
+#gameDisplay .color6 {
+    stroke: #A9FF00;
+    -webkit-text-fill-color: #A9FF00;
+    fill: #D4FF7F;
+}
+#gameDisplay .color7 {
+    stroke: #71FF00;
+    -webkit-text-fill-color: #71FF00;
+    fill: #B8FF7F;
+}
+#gameDisplay .color8 {
+    stroke: #38FF00;
+    -webkit-text-fill-color: #38FF00;
+    fill: #9BFF7F;
+}
+#gameDisplay .color9 {
+    stroke: #00FF00;
+    -webkit-text-fill-color: #00FF00;
+    fill: #7FFF7F;
+}
+#gameDisplay .colorblue {
+    stroke: blue;
+    -webkit-text-fill-color: blue;
+    fill: #8F8FFF;
+}
+#gameDisplay .colorpurple {
+    stroke: purple;
+    -webkit-text-fill-color: purple;
+    fill: #F9D0F9;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <!-- https://www.iconfinder.com/icons/32364/flag_states_united_united_states_usa_icon -->
+        <link rel="icon" href="imgs/icons/USA.png">
+        <title>Not 50 States</title>
+	    
+	    <link rel="stylesheet" type="text/css" href="css/statesgame.css">
+	</head>
+	<body>
+		<div id="gameDisplay">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" id="gameSVG">
+            </svg>
+		</div>
+		<div id="cheaters" class="scoreboard" style="display: none;">
+		    <h2 class="centered thick">Cheaters:</h2>
+		    <div class="nums">
+		        <p class="darkred">1.</p>
+		        <p>2.</p>
+		        <p>3.</p>
+		        <p>4.</p>
+		        <p>5.</p>
+		    </div>
+		    <div class="names">
+		        <p id="cheaters_name1" class="darkred">---</p>
+		        <p id="cheaters_name2">---</p>
+		        <p id="cheaters_name3">---</p>
+		        <p id="cheaters_name4">---</p>
+		        <p id="cheaters_name5">---</p>
+		    </div>
+		    <div class="scores">
+		        <p id="cheaters_score1" class="darkred">0</p>
+		        <p id="cheaters_score2">0</p>
+		        <p id="cheaters_score3">0</p>
+		        <p id="cheaters_score4">0</p>
+		        <p id="cheaters_score5">0</p>
+		    </div>
+		</div>
+		<div id="performanceBox" style="display: none;">
+		    <span>dt: </span>
+		    <span id="dt">18</span>
+		    <br>
+		    <span>FPS: </span>
+		    <span id="fps">55.56</span>
+		</div>
+		<div id="winners" class="scoreboard" style="left: unset; right: 0;">
+		    <h2 class="centered thick">Winners:</h2>
+		    <div class="nums">
+		        <p class="gold">1.</p>
+		        <p class="silver">2.</p>
+		        <p class="bronze">3.</p>
+		        <p>4.</p>
+		        <p>5.</p>
+		    </div>
+		    <div class="names">
+		        <p id="winners_name1" class="gold">---</p>
+		        <p id="winners_name2" class="silver">---</p>
+		        <p id="winners_name3" class="bronze">---</p>
+		        <p id="winners_name4">---</p>
+		        <p id="winners_name5">---</p>
+		    </div>
+		    <div class="scores">
+		        <p id="winners_score1" class="gold">0</p>
+		        <p id="winners_score2" class="silver">0</p>
+		        <p id="winners_score3" class="bronze">0</p>
+		        <p id="winners_score4">0</p>
+		        <p id="winners_score5">0</p>
+		    </div>
+		</div>
+		<div id="sidebar">
+		    <h1 class="thick">Score:</h1>
+		    <h1 id="scoreDisplay" class="thick darkred">0</h1>
+		    <h3 class="thick">Current state:</h3>
+		    <h2 id="stateName" class="darkred">???</h2>
+		    <div class="bottom">
+		        <div class="centered2XY">
+        		    <input id="buttonPause" type="button" class="button grey" value="Pause [P]" onclick="pauseUnpause(this)">
+        		    <input id="buttonReset" type="button" class="button red" value="Reset [R]" onclick="gameStart()">
+        		    <input id="buttonQuit" type="button" class="button black" value="Quit [ESC]" onclick="self.close()">
+		        </div>
+		    </div>
+		</div>
+		<div class="popup-background" id="welcome">
+		    <div class="popup">
+    		    <h2 class="centered">Welcome to...</h2>
+    		    <h1 class="centered">Not 50 States!</h1>
+    		    <h4 class="centered">by Alexey Didenkov</h4>
+    		    <h3 class="centered">You are player #{{numVisitors}}</h3>
+    		    <h3>How to play:</h3>
+    		    <ol>
+    		        <li>Use [←↑↓→] to move, [Z] and [X] to rotate.</li>
+    		        <li>Press [SPACE] to confirm location. Try to arrange the states like they are in real life!</li>
+    		        <li>You are awarded points for placing the new state at the right distance from its bordering states. Not too far, not too close.</li>
+    		        <li>If you forget a state's name, press [SHIFT] for a hint. <u>Be advised</u> - this <u>costs 50 points</u></li>
+    		        <li>If you forget a state's borders, press [C] for a hint. <u>Be advised</u> - this <u>costs 50 points per state</u> highlighted.</li>
+    		        <li>Try to get as many points as you can!</li>
+    		    </ol>
+    		    <input id="buttonGo" type="button" class="button green centered2" value="Let's go! [ENTER]" onclick="hideAndStart(document.getElementById('welcome'))">
+		    </div>
+		</div>
+		<div class="popup-background" id="gameOver">
+		    <div class="popup">
+    		    <h1 class="centered">Game Over!</h1>
+    		    <h2 class="centered">Your final score is...</h2>
+    		    <h1 id="scoreFinal" class="centered thick darkred"></h1>
+    		    <h2 class="centered">Submit your score:</h2>
+    		    <div style="white-space: nowrap;">
+    		        <input type="text" class="text" maxlength="9" size="9" id="nameField" placeholder="Name" value="---">
+    		        <input type="button" class="button orange" value="Submit" id="nameSubmit" onclick="scoreSend()" style="width: unset;">
+    		    </div>
+    		    <input id="buttonAgain" type="button" class="button green centered2" value="Play again! [ENTER]" onclick="hideAndStart(document.getElementById('gameOver'))" style="margin-top: unset;">
+		    </div>
+		</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/statesgame.js"></script>
+	</body>
+</html>

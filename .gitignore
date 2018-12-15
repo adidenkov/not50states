@@ -1,0 +1,7 @@
+# complete binaries of installed packages
+# too large to comfortably commit
+node_modules
+
+# changes every run
+# don't want it cluttering up changelogs
+info.log
